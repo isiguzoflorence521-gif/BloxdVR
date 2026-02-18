@@ -1,2 +1,24 @@
-# BloxdVR
-A VR emulator for Bloxd
+# 🎮 BloxdVR
+
+**BloxdVR** is a custom, community-driven virtual reality project that brings the world of [Bloxd.io](https://bloxd.io) into a fully immersive VR experience. This project serves as a VR client and toolkit, enabling head tracking, VR controls, and a true 3D camera view for Bloxd players.
+
+> **⚠️ Disclaimer:** BloxdVR is an **unofficial** third-party project and is not affiliated with the official Bloxd.io developers. It is part of the custom development ecosystem including **IQBloxd**, **VBloxd**, and **VRBloxd**.
+
+## ✨ Features
+*   **Head Movement Tracking:** Full 360-degree vision using the [WebXR Device API](https://developer.mozilla.org).
+*   **VR Controls:** Optimized input mapping for Quest, Index, and major VR controllers.
+*   **3D Camera View:** Enhanced depth perception for a true voxel immersion.
+*   **VR Interactions:** Custom-coded mechanics designed for a VR sandbox environment.
+
+## 🛠️ Getting Started
+
+### Prerequisites
+To use BloxdVR, you will need:
+*   A VR-capable browser (Meta Quest Browser, Chrome, or Edge).
+*   A compatible headset (Quest 2/3/Pro, Valve Index, Rift, etc.).
+*   Optional: [Immersive Web Emulator](https://chromewebstore.google.com) for desktop testing.
+
+### Installation / Usage
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com

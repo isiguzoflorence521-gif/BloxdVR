@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>BloxdVR | Virtual Reality Client</title>
+    
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- App Icons -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/logo-512.png">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles/vr-ui.css">
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net"></script>
+    <script src="libs/gl-matrix.js"></script>
+</head>
+<body>
+    <!-- VR Overlay UI (Hidden by default) -->
+    <div id="bloxd-vr-overlay" class="vr-ui-hidden">
+        <div class="vr-eye-panel left-eye">
+            <div id="vr-console-log"></div>
+        </div>
+        <div class="vr-eye-panel right-eye">
+            <!-- Mirror of the left eye for stereoscopic view -->
+        </div>
+        <div class="vr-crosshair"></div>
+    </div>
+
+    <!-- Main Logic Loader -->
+    <script type="module" src="scripts/injector.js"></script>
+</body>
+</html>

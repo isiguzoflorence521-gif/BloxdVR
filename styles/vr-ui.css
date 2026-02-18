@@ -1,0 +1,64 @@
+/* Container for the VR Overlay */
+#bloxd-vr-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around; /* Splits UI for left/right eye */
+    align-items: center;
+    pointer-events: none; /* Let clicks pass through to the game */
+    z-index: 10000;
+}
+
+/* Individual Eye Viewports */
+.vr-eye-panel {
+    width: 45%;
+    height: 60%;
+    background: rgba(0, 0, 0, 0.4); /* Translucent black */
+    border: 2px solid #2ecc71;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* VR Inventory Slots */
+.vr-hotbar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.vr-slot {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* VR Crosshair */
+.vr-crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #ff4757;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #ff4757;
+}
+
+/* Hidden by default until VR Session starts */
+.vr-ui-hidden {
+    display: none !important;
+}

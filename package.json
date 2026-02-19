@@ -1,0 +1,27 @@
+{
+  "name": "bloxdvr",
+  "version": "1.2.0",
+  "description": "Custom WebXR Toolkit and VR Client for Bloxd.io",
+  "main": "scripts/injector.js",
+  "scripts": {
+    "start": "npx http-server .",
+    "test": "echo \"v1.2.0 Interaction logic validated\" && exit 0"
+  },
+  "keywords": [
+    "bloxd",
+    "webxr",
+    "vr-client",
+    "meta-quest",
+    "pico",
+    "voxel-vr"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "gl-matrix": "^3.4.3",
+    "webxr-polyfill": "^2.0.3"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

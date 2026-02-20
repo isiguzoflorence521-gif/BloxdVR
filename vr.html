@@ -2,64 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BloxdVR v1.3.0 - World Update</title>
+    <title>BloxdVR v1.3.0 - Redirect</title>
     <style>
-        body { margin: 0; background: #000; overflow: hidden; font-family: sans-serif; }
-        #ui-layer { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: rgba(0,0,0,0.8); z-index: 100;
+        body { 
+            margin: 0; 
+            background: #1a1a1a; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            font-family: sans-serif; 
         }
         button {
-            padding: 20px 40px; font-size: 1.5rem; cursor: pointer;
-            background: #2ecc71; border: none; color: white; border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            background: #27ae60;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
-        #game-frame {
-            width: 100vw; height: 100vh; border: none;
-        }
+        button:hover { transform: scale(1.1); background: #2ecc71; }
     </style>
 </head>
 <body>
-    <div id="ui-layer">
-        <h1 style="color: white;">BloxdVR v1.3.0</h1>
-        <button id="enter-vr">ENTER BLOXD VR</button>
-    </div>
 
-    <!-- The critical iFrame with XR permissions -->
-    <iframe id="game-frame" 
-            src="https://bloxd.io" 
-            allow="xr-spatial-tracking; gamepad; fullscreen;" 
-            allowfullscreen="true">
-    </iframe>
+    <h1>BloxdVR v1.3.0</h1>
+    <p>Press the button to launch the game</p>
+    
+    <!-- This button now handles the redirect -->
+    <button id="enter-vr">ENTER BLOXD VR</button>
 
-    <script type="module">
-        import { initVR } from './scripts/injector.js';
-
+    <script>
         const vrButton = document.getElementById('enter-vr');
-        const gameFrame = document.getElementById('game-frame');
-        
-        vrButton.addEventListener('click', async () => {
-            if (navigator.xr) {
-                try {
-                    // Start VR session
-                    const session = await navigator.xr.requestSession('immersive-vr', {
-                        requiredFeatures: ['local-floor']
-                    });
 
-                    // Hide the menu
-                    document.getElementById('ui-layer').style.display = 'none';
+        vrButton.addEventListener('click', () => {
+            // 1. Optional: Log the intent for your v1.3.0 analytics
+            console.log("Launching Bloxd.io in VR mode...");
 
-                    // Bridge the VR data to the game iFrame
-                    initVR(session, gameFrame.contentWindow);
-                    
-                } catch (e) {
-                    console.error("VR Error:", e);
-                    alert("Click failed: Ensure you are on HTTPS and using a VR browser.");
-                }
-            } else {
-                alert("Your browser doesn't support WebXR.");
-            }
+            // 2. Immediate Redirect to the game
+            window.location.href = "https://bloxd.io";
         });
     </script>
 </body>

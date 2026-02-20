@@ -21,7 +21,7 @@ To use BloxdVR, you will need:
 ### Installation / Usage
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   gh repo clone isiguzoflorence521-gif/BloxdVR
 Use the code with caution.
 
 ### 2. Open the project:

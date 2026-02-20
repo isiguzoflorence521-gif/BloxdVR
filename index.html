@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic HTML Settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BloxdVR - Robotic World</title>
+    <!-- Link to CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Optional: Google Fonts for futuristic font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* Inline CSS to make it immediately robotic-themed */
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(160deg, #0a0a0a, #1a1a1a);
+            color: #00fffb;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+            border-bottom: 2px solid #00fffb50;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: #00fffb;
+            text-shadow: 0 0 10px #00fffb, 0 0 20px #00fffb;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #00f6f6;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+
+        a.button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #00fffb20;
+            border: 2px solid #00fffb;
+            color: #00fffb;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #00fffb50;
+            box-shadow: 0 0 15px #00fffb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #00c8c8;
+            border-top: 2px solid #00fffb50;
+        }
+
+        /* Robotic animation: subtle flickering text */
+        @keyframes flicker {
+            0%, 100% {opacity: 1;}
+            50% {opacity: 0.8;}
+        }
+        h1, p {
+            animation: flicker 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BloxdVR</h1>
+    </header>
+
+    <main>
+        <p>Enter the robotic virtual reality experience.</p>
+        <a href="vr.html" class="button">Launch VR</a>
+        <img src="robotic-avatar.png" alt="Robotic Avatar" width="300" height="300" style="margin-top: 2rem; border: 2px solid #00fffb; border-radius: 15px; box-shadow: 0 0 20px #00fffb;">
+    </main>
+
+    <footer>
+        &copy; 2026 BloxdVR. All Rights Reserved. Powered by robotic AI engines.
+    </footer>
+
+    <!-- JavaScript for enhancements -->
+    <script src="index.js"></script>
+</body>
+</html>

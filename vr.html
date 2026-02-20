@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxdVR v1.3.0 - World Update</title>
+    <!-- WebXR Polyfill for older headsets/browsers -->
+    <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js"></script>
+    <style>
+        body { margin: 0; background: #000; color: white; font-family: sans-serif; overflow: hidden; }
+        #ui-layer { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; z-index: 10;
+        }
+        button {
+            padding: 15px 30px; font-size: 1.2rem; cursor: pointer;
+            background: #2ecc71; border: none; color: white; border-radius: 5px;
+        }
+        canvas { width: 100vw; height: 100vh; display: block; }
+    </style>
+</head>
+<body>
+    <div id="ui-layer">
+        <h1>BloxdVR v1.3.0</h1>
+        <p>World Presence & Interaction Update</p>
+        <button id="enter-vr">ENTER VR MODE</button>
+    </div>
+
+    <!-- Main Game Canvas -->
+    <canvas id="vr-canvas"></canvas>
+
+    <script type="module">
+        import { initVR } from './scripts/injector.js';
+
+        const vrButton = document.getElementById('enter-vr');
+        
+        // WebXR requires a user gesture (click) to start immersive-vr
+        vrButton.addEventListener('click', async () => {
+            if (navigator.xr) {
+                try {
+                    const session = await navigator.xr.requestSession('immersive-vr', {
+                        requiredFeatures: ['local-floor'], // Needed for v1.3.0 World Height Scaling
+                        optionalFeatures: ['hand-tracking']
+                    });
+                    
+                    document.getElementById('ui-layer').style.display = 'none';
+                    initVR(session); // Bridges to your Bloxd.io logic
+                } catch (e) {
+                    console.error("Failed to start VR:", e);
+                    alert("VR Session Failed. Make sure you are on HTTPS.");
+                }
+            } else {
+                alert("WebXR not supported in this browser.");
+            }
+        });
+    </script>
+</body>
+</html>

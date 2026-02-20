@@ -2,51 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BloxdVR v1.3.0 - Redirect</title>
+    <title>BloxdVR // SYSTEM_OS_v1.3.0</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        body { 
-            margin: 0; 
-            background: #1a1a1a; 
-            color: white; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
-            font-family: sans-serif; 
+        :root {
+            --neon-green: #00ff41;
+            --dark-bg: #050505;
+            --interface-blue: #0080ff;
         }
-        button {
-            padding: 20px 50px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            background: #27ae60;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
+
+        body, html { 
+            margin: 0; padding: 0; height: 100%; 
+            background: var(--dark-bg); color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif; overflow: hidden;
         }
-        button:hover { transform: scale(1.1); background: #2ecc71; }
+
+        /* Robotic Scanline Effect */
+        body::before {
+            content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
+        }
+
+        #ui-container {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .hud-bracket {
+            border: 2px solid var(--neon-green); padding: 40px;
+            background: rgba(0, 255, 65, 0.05); position: relative;
+        }
+
+        /* Robotic Corners */
+        .hud-bracket::before, .hud-bracket::after {
+            content: ""; position: absolute; width: 20px; height: 20px; border: 4px solid var(--interface-blue);
+        }
+        .hud-bracket::before { top: -10px; left: -10px; border-right: 0; border-bottom: 0; }
+        .hud-bracket::after { bottom: -10px; right: -10px; border-left: 0; border-top: 0; }
+
+        h1 { letter-spacing: 5px; margin-bottom: 5px; font-size: 2.5rem; }
+        .version { font-family: 'Source Code Pro', monospace; color: var(--interface-blue); font-size: 0.8rem; margin-bottom: 30px; }
+
+        #launch-btn {
+            background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green);
+            padding: 15px 50px; font-family: 'Orbitron', sans-serif; font-weight: bold;
+            cursor: pointer; transition: 0.3s; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        #launch-btn:hover { background: var(--neon-green); color: black; box-shadow: 0 0 30px var(--neon-green); }
+
+        /* Diagnostic Sidebar */
+        #diagnostics {
+            position: absolute; bottom: 20px; left: 20px; font-family: 'Source Code Pro', monospace;
+            font-size: 10px; text-transform: uppercase; line-height: 1.5; opacity: 0.7;
+        }
+
+        .glitch { animation: glitch-anim 2s infinite; }
+        @keyframes glitch-anim { 0% { opacity: 1; } 50% { opacity: 0.7; } 51% { color: red; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <h1>BloxdVR v1.3.0</h1>
-    <p>Press the button to launch the game</p>
-    
-    <!-- This button now handles the redirect -->
-    <button id="enter-vr">ENTER BLOXD VR</button>
+    <div id="ui-container">
+        <div class="hud-bracket">
+            <h1 class="glitch">BLOXD_VR</h1>
+            <div class="version">CORE_OS // REL_v1.3.0 // STATUS: READY</div>
+            
+            <button id="launch-btn" onclick="startBootSequence()">BOOT VR_EMULATOR</button>
+        </div>
+    </div>
+
+    <div id="diagnostics">
+        [SYS] WEBXR_SUPPORT: DETECTED<br>
+        [SYS] FIRMWARE_SYNC: 90HZ<br>
+        [SYS] HAPTICS_READY: TRUE<br>
+        [SYS] MAPPING_NODE_V3: ACTIVE
+    </div>
 
     <script>
-        const vrButton = document.getElementById('enter-vr');
+        function startBootSequence() {
+            const btn = document.getElementById('launch-btn');
+            btn.innerText = "BOOTING...";
+            btn.style.borderColor = "#0080ff";
+            btn.style.color = "#0080ff";
 
-        vrButton.addEventListener('click', () => {
-            // 1. Optional: Log the intent for your v1.3.0 analytics
-            console.log("Launching Bloxd.io in VR mode...");
-
-            // 2. Immediate Redirect to the game
-            window.location.href = "https://bloxd.io";
-        });
+            setTimeout(() => {
+                // The v1.3.0 Redirect to Bloxd.io
+                window.location.href = "https://bloxd.io";
+            }, 1200);
+        }
     </script>
 </body>
 </html>

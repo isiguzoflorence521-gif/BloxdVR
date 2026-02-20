@@ -39,5 +39,21 @@ Create your Feature Branch (git checkout -b feature/NewVRFeature).
 Commit your changes (git commit -m 'Add VR teleportation').
 Push to the Branch (git push origin feature/NewVRFeature).
 Open a Pull Request.
+
+### 👤 Supported VR Avatars (v1.3.0)
+
+| Character | Part | Appearance | Gender |
+| :--- | :--- | :--- | :--- |
+| **Bob** | Head | Brown Hair, Blue Eyes | Male |
+| **Emma** | Head | Blond Hair, Green Eyes | Female |
+| **Sanjay** | Head | Short Hair, Dark Skin | Male |
+| **Sara** | Head | Long Hair, Dark Skin | Female |
+
+### 👕 VR-Synced Clothing
+Your VR hands will automatically match your selected top:
+- **Red Hoodie:** Red sleeves in VR view.
+- **Green Top:** Rolled sleeves in VR view.
+- **Khakis:** Brown-ish textured arms.
+
 ### 📜 License
 This project is licensed under the MIT License.

@@ -51,7 +51,7 @@ Open a Pull Request.
 | **Enoch**  | Head      | Dark Skin, Short Hair, Brown Eyes         | Male   | ✅ Live |
 | **Emma**   | Head      | Bright Skin, Blond Hair, Green Eyes       | Female | ✅ Live |
 | **Isabel** | Head      | Bright Skin, Brown Hair, Blue Eyes        | Female | ✅ Live |
-| **Imara**  | Head      | Dark Skin, Long Hair, Brown Eyes          | Female | 📅 Plan |
+| **Imara**  | Head      | Dark Skin, Long Hair, Brown Eyes          | Female | ✅ Live |
 | **Sara**   | Head      | Dark Skin, Long Hair, Dark Brown Eyes     | Female | 📅 Plan |
 
 ### 👕 VR-Synced Clothing (World Presence)

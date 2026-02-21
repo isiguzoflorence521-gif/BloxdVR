@@ -52,7 +52,7 @@ Open a Pull Request.
 | **Emma**   | Head      | Bright Skin, Blond Hair, Green Eyes       | Female | ✅ Live |
 | **Isabel** | Head      | Bright Skin, Brown Hair, Blue Eyes        | Female | ✅ Live |
 | **Imara**  | Head      | Dark Skin, Long Hair, Brown Eyes          | Female | ✅ Live |
-| **Sara**   | Head      | Dark Skin, Long Hair, Dark Brown Eyes     | Female | 📅 Plan |
+| **Sara**   | Head      | Dark Skin, Long Hair, Dark Brown Eyes     | Female | ✅ Live |
 
 ### 👕 VR-Synced Clothing (World Presence)
 The BloxdVR engine (v1.3.0) now dynamically maps your avatar's clothing to your VR hand/arm meshes:

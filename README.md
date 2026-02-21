@@ -49,8 +49,8 @@ Open a Pull Request.
 | **Leo**    | Head      | Bright Skin, Brown Hair, Blue Eyes        | Male   | ✅ Live |
 | **Sanjay** | Head      | Dark Skin, Short Hair, Light Brown Eyes   | Male   | ✅ Live |
 | **Enoch**  | Head      | Dark Skin, Short Hair, Brown Eyes         | Male   | ✅ Live |
-| **Emma**   | Head      | Bright Skin, Blond Hair, Green Eyes       | Female | 🔨 Dev  |
-| **Isabel** | Head      | Bright Skin, Brown Hair, Blue Eyes        | Female | 📅 Plan |
+| **Emma**   | Head      | Bright Skin, Blond Hair, Green Eyes       | Female | ✅ Live |
+| **Isabel** | Head      | Bright Skin, Brown Hair, Blue Eyes        | Female | ✅ Live  |
 | **Imara**  | Head      | Dark Skin, Long Hair, Brown Eyes          | Female | 📅 Plan |
 | **Sara**   | Head      | Dark Skin, Long Hair, Dark Brown Eyes     | Female | 📅 Plan |
 

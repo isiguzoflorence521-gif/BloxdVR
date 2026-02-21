@@ -2,130 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloxdVR v1.3.2 | World Presence Hub</title>
+    <title>BloxdVR v1.3.2 | Avatar Hub</title>
     <style>
-        :root { --primary: #2ecc00; --bg: #050505; --glass: rgba(255, 255, 255, 0.05); }
-        
-        body { 
-            margin: 0; background: var(--bg); color: white; 
-            font-family: 'Orbitron', 'Segoe UI', sans-serif; 
-            overflow-x: hidden; display: flex; justify-content: center;
-        }
-
-        /* 🎥 Animated Background */
-        #bg-video {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; opacity: 0.3; z-index: -1; filter: grayscale(1);
-        }
-
-        .container { 
-            max-width: 1000px; width: 90%; padding: 40px 0; 
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        /* 💎 Glass UI Header */
-        .header {
-            background: var(--glass); backdrop-filter: blur(10px);
-            padding: 20px 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
-            text-align: center; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        h1 { font-size: 3rem; margin: 0; letter-spacing: 5px; text-transform: uppercase; }
-        .version-tag { color: var(--primary); font-size: 1rem; vertical-align: super; }
-
-        /* 🎮 Avatar Grid */
-        .avatar-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-            gap: 20px; width: 100%; margin: 30px 0;
-        }
-
-        .avatar-card { 
-            background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px; padding: 25px; cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-align: center; backdrop-filter: blur(5px);
-        }
-
-        .avatar-card:hover { 
-            background: rgba(46, 204, 0, 0.1); border-color: var(--primary); 
-            transform: translateY(-10px) scale(1.05); 
-        }
-
-        .avatar-card.selected { 
-            background: rgba(46, 204, 0, 0.2); border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(46, 204, 0, 0.3);
-        }
-
-        .avatar-card img { 
-            width: 96px; height: 96px; image-rendering: pixelated; 
-            border-radius: 8px; margin-bottom: 15px; background: #000;
-        }
-
-        /* 🚀 Launch Section */
-        .controls { margin-top: 20px; text-align: center; }
-        
-        .btn-launch { 
-            background: var(--primary); color: black; border: none;
-            padding: 20px 80px; font-size: 1.5rem; font-weight: 900;
-            border-radius: 50px; cursor: pointer; text-transform: uppercase;
-            box-shadow: 0 5px 20px rgba(46, 204, 0, 0.4); transition: 0.2s;
-        }
-
-        .btn-launch:hover { transform: scale(1.1); filter: brightness(1.2); }
-
-        /* 📊 Live Stats Bar */
-        .stats-bar {
-            display: flex; gap: 40px; margin-top: 50px; color: #888;
-            font-size: 0.8rem; text-transform: uppercase;
-        }
-
-        .footer-note { 
-            margin-top: 40px; color: #444; font-size: 0.7rem; max-width: 500px; text-align: center;
-        }
+        :root { --primary: #2ecc00; --bg: #0d0d0d; }
+        body { margin: 0; background: var(--bg); color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px; }
+        .avatar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .avatar-card { background: #1a1a1a; padding: 15px; border-radius: 12px; cursor: pointer; text-align: center; border: 2px solid transparent; transition: 0.2s; }
+        .avatar-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .avatar-card.selected { border-color: var(--primary); background: #142514; box-shadow: 0 0 15px rgba(46, 204, 0, 0.3); }
+        .avatar-card img { width: 80px; height: 80px; image-rendering: pixelated; border-radius: 6px; background: #000; }
+        .launch-btn { background: var(--primary); color: black; border: none; padding: 18px 50px; font-size: 1.3rem; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-    <!-- Optional Background Video/Gif -->
-    <img id="bg-video" src="https://bloxd.io" alt="background">
+    <h1>Bloxd<span style="color:var(--primary)">VR</span> v1.3.2</h1>
+    <p>Select your avatar (Textures by <b>bloxdskins</b>)</p>
 
-    <div class="container">
-        <div class="header">
-            <h1>Bloxd<span style="color:var(--primary)">VR</span> <span class="version-tag">v1.3.2</span></h1>
-            <p style="color:#aaa">Select Identity • Initialize WebXR • Enter World</p>
-        </div>
+    <div class="avatar-grid" id="grid"></div>
 
-        <div class="avatar-grid" id="grid"></div>
-
-        <div class="controls">
-            <button class="btn-launch" onclick="launchGame()">Enter Bloxd VR</button>
-        </div>
-
-        <div class="stats-bar">
-            <span>Server: Global</span>
-            <span>Latency: <span id="ping">--</span>ms</span>
-            <span>Engine: WebXR 2.0</span>
-        </div>
-
-        <div class="footer-note">
-            Published from Remote Terminal. Binaries (.zip) pending primary machine sync. 
-            All icons & models are served via <b>isiguzoflorence521-gif.github.io</b>.
-        </div>
-    </div>
+    <button class="launch-btn" onclick="window.location.href='https://bloxd.io'">Enter Bloxd VR</button>
 
 <script>
-    // YOUR EXACT PATHS
+    // HARDCODED ABSOLUTE PATHS FOR v1.3.2
+    const repoURL = "https://isiguzoflorence521-gif.github.io";
+    
     const avatars = [
-    { name: 'Bob',    url: './assets/icons/bob_icon.png' },
-    { name: 'Leo',    url: './assets/icons/leo_icon.png' },
-    { name: 'Sanjay', url: './assets/icons/sanjay_icon.png' },
-    { name: 'Enoch',  url: './assets/icons/enoch_icon.png' },
-    { name: 'Emma',   url: './assets/icons/emma_icon.png' },
-    { name: 'Isabel', url: './assets/icons/isabel_icon.png' },
-    { name: 'Imara',  url: './assets/icons/imara_icon.png' },
-    { name: 'Sara',   url: './assets/icons/sara_icon.png' }
-];
+        { name: 'Bob' }, { name: 'Leo' }, { name: 'Sanjay' }, { name: 'Enoch' },
+        { name: 'Emma' }, { name: 'Isabel' }, { name: 'Imara' }, { name: 'Sara' }
+    ];
 
     const grid = document.getElementById('grid');
     let selected = localStorage.getItem('bloxd_avatar') || 'Bob';
@@ -133,33 +38,24 @@
     avatars.forEach(p => {
         const card = document.createElement('div');
         card.className = `avatar-card ${selected === p.name ? 'selected' : ''}`;
-        card.innerHTML = `
-            <img src="${p.url}" alt="${p.name}" onerror="this.src='https://www.minecraftskins.com'">
-            <div style="font-weight:bold; letter-spacing:1px;">${p.name}</div>
-        `;
         
+        // This builds the link: https://isiguzoflorence521-gif.github.iobob_icon.png
+        const iconPath = repoURL + p.name.toLowerCase() + "_icon.png";
+
+        card.innerHTML = `
+            <img src="${iconPath}" alt="${p.name}" 
+                 onerror="this.src='https://www.minecraftskins.com'; console.error('Failed: ' + this.src);">
+            <div style="margin-top:10px; font-weight:bold; font-size:0.9rem;">${p.name.toUpperCase()}</div>
+        `;
+
         card.onclick = () => {
-            // Sound effect (optional)
-            new Audio('https://www.soundjay.com').play().catch(()=>{});
-            
             document.querySelectorAll('.avatar-card').forEach(c => c.classList.remove('selected'));
             card.classList.add('selected');
             localStorage.setItem('bloxd_avatar', p.name);
-            selected = p.name;
+            console.log("v1.3.2 Avatar: " + p.name);
         };
         grid.appendChild(card);
     });
-
-    function launchGame() {
-        document.body.style.transition = "opacity 1s";
-        document.body.style.opacity = "0";
-        setTimeout(() => window.location.href = 'https://bloxd.io', 1000);
-    }
-
-    // Ping Simulator
-    setInterval(() => {
-        document.getElementById('ping').innerText = Math.floor(Math.random() * 20) + 15;
-    }, 2000);
 </script>
 </body>
 </html>

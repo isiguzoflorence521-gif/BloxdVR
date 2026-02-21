@@ -42,18 +42,32 @@ Open a Pull Request.
 
 ### 👤 Supported VR Avatars (v1.3.0)
 
-| Character | Part | Appearance | Gender |
-| :--- | :--- | :--- | :--- |
-| **Bob** | Head | Brown Hair, Blue Eyes | Male |
-| **Emma** | Head | Blond Hair, Green Eyes | Female |
-| **Sanjay** | Head | Short Hair, Dark Skin | Male |
-| **Sara** | Head | Long Hair, Dark Skin | Female |
 
-### 👕 VR-Synced Clothing
-Your VR hands will automatically match your selected top:
-- **Red Hoodie:** Red sleeves in VR view.
-- **Green Top:** Rolled sleeves in VR view.
-- **Khakis:** Brown-ish textured arms.
+| Name    | Body Part | Appearance                                | Gender | Status |
+| :------ | :-------- | :---------------------------------------- | :----- | :----- |
+| **Bob**    | Head      | Default, Brown Hair, Blue Eyes            | Male   | ✅ Live |
+| **Leo**    | Head      | Bright Skin, Brown Hair, Blue Eyes        | Male   | ✅ Live |
+| **Sanjay** | Head      | Dark Skin, Short Hair, Light Brown Eyes   | Male   | ✅ Live |
+| **Enoch**  | Head      | Dark Skin, Short Hair, Brown Eyes         | Male   | ✅ Live |
+| **Emma**   | Head      | Bright Skin, Blond Hair, Green Eyes       | Female | 🔨 Dev  |
+| **Isabel** | Head      | Bright Skin, Brown Hair, Blue Eyes        | Female | 📅 Plan |
+| **Imara**  | Head      | Dark Skin, Long Hair, Brown Eyes          | Female | 📅 Plan |
+| **Sara**   | Head      | Dark Skin, Long Hair, Dark Brown Eyes     | Female | 📅 Plan |
+
+### 👕 VR-Synced Clothing (World Presence)
+The BloxdVR engine (v1.3.0) now dynamically maps your avatar's clothing to your VR hand/arm meshes:
+
+*   **Hoodie:** Red texture, default full-length sleeves, brown belt.
+*   **Purple Top:** Purple texture, short sleeves, brown belt.
+*   **Light Blue Polo:** Blue texture, short sleeves, black belt.
+*   **Green Top:** Green texture, rolled-up sleeve meshes.
+*   **Khakis:** Brown-ish texture with small pocket, brown belt.
+*   **Light Blue Crop Top:** Light blue texture, sleeveless/crop style.
+
+### 👖 Lower Body Sync
+*   **Jeans/Trousers:** Light Blue, Navy Blue, or Brown long-sleeve leg meshes.
+*   **Shorts:** Tan or Navy Blue Denim short-sleeve leg meshes with synced footwear.
+
 
 ### 📜 License
 This project is licensed under the MIT License.
